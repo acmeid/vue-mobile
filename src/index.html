@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <meta content="yes" name="apple-mobile-web-app-capable">
+	  <meta content="yes" name="apple-touch-fullscreen">
+	  <meta content="telephone=no,email=no" name="format-detection">
+	  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	  <!-- <link rel="Shortcut Icon" href="/public/images/logo.png" type="image/x-icon"> -->
+
+    <script>
+        //设置不同分辨率下的文字尺寸
+        (function (doc, win) {
+          var docEl = doc.documentElement
+          var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+          var recalc = function() {
+            var clientWidth = docEl.clientWidth
+            var app = doc.getElementById('app-root')
+
+            if (!clientWidth) return;
+
+            if (clientWidth >= 480){
+              docEl.style.fontSize = '112.5px';
+            }else if (clientWidth <= 320) {
+              docEl.style.fontSize = '75px';
+            }else{
+              app.style.width = 'auto';
+              docEl.style.fontSize = 75 * (clientWidth / 320) + 'px';
+            }
+
+            if(clientWidth >= 720){
+              app.style.width = '640px';
+              app.style.margin = 'auto';
+            }else{
+              app.style.width = 'auto';
+              app.style.margin = 'auto';
+            }
+          };
+
+          if (!doc.addEventListener) return;
+          win.addEventListener(resizeEvt, recalc, false);
+          doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window)
+    </script>
+
+    <title>轻松家电</title>
+  </head>
+  <body>
+  	<div id="app-root"></div>
+
+    
+  </body>
+</html>
