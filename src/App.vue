@@ -6,7 +6,6 @@
 
 <script>
 require('./assets/css/reset.css')
-require('vux/vux.css')
 
 export default {
 
