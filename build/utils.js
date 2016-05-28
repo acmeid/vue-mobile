@@ -25,7 +25,7 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract('vue-style-loader', sourceLoader)
     } else {
-      return ['vue-style-loader', sourceLoader, 'px2rem?remUnit=75&remPrecision=8'].join('!')
+      return ['vue-style-loader', sourceLoader].join('!')
     }
   }
 
@@ -46,7 +46,7 @@ exports.styleLoaders = function (options) {
   var output = []
   var loaders = exports.cssLoaders(options)
   for (var extension in loaders) {
-    var loader = loaders[extension] + '!px2rem?remUnit=75&remPrecision=8'
+    var loader = loaders[extension]
     output.push({
       test: new RegExp('\\.' + extension + '$'),
       loader: loader
